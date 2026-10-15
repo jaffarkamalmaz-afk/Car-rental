@@ -1,0 +1,321 @@
+/* ملف التنسيق الموحد لجميع الصفحات */
+
+/* الخطوط: تنسيق جميع الكلمات من مكان واحد */
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f2f4f7;
+    color: #222222;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #1b4f72;
+}
+
+/* القائمة العلوية */
+#header {
+    background: linear-gradient(90deg, #154360, #2e86c1);
+    color: #ffffff;
+    padding: 12px 20px;
+}
+
+#header h1 {
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    font-size: 24px;
+}
+
+#nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 18px;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+#nav a:hover, #nav a.active {
+    background-color: #2e86c1;
+}
+
+#content {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+#footer {
+    text-align: center;
+    padding: 12px;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* الجداول */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #b3b9c0;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #d6eaf8;
+}
+
+td.car-img img {
+    width: 90px;
+    height: 45px;
+}
+
+tr.details-row {
+    display: none;
+}
+
+tr.details-row td {
+    background-color: #fef9e7;
+    text-align: right;
+}
+
+/* عناصر الإدخال النصية: تنسيقها من مكان واحد (اللون) */
+input[type="text"], input[type="tel"], input[type="email"] {
+    background-color: #eaf2f8;
+    color: #1b2631;
+    border: 1px solid #5d6d7e;
+    border-radius: 4px;
+    padding: 6px;
+    width: 250px;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus {
+    background-color: #fcf3cf;
+}
+
+fieldset {
+    border: 1px solid #2e86c1;
+    border-radius: 6px;
+    margin-top: 15px;
+    padding: 12px;
+}
+
+legend {
+    color: #1b4f72;
+    font-weight: bold;
+}
+
+label {
+    display: inline-block;
+    width: 160px;
+    margin: 8px 0;
+}
+
+input[type="button"] {
+    background-color: #2e86c1;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 22px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+input[type="button"]:hover {
+    background-color: #1b4f72;
+}
+
+.error {
+    color: #c0392b;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.hint {
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+#bookingForm {
+    display: none;
+}
+
+#pickMsg {
+    color: #c0392b;
+}
+
+.center {
+    text-align: center;
+}
+
+/* نافذة النتيجة */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+#resultBox {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 560px;
+    margin: 60px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 75%;
+    overflow: auto;
+}
+
+#resultBox table {
+    margin: 10px 0;
+}
+
+.total-line {
+    font-weight: bold;
+}
+
+/* ---------- حركة وتأثيرات ---------- */
+#nav a, input[type="button"], .btn, .card, td.car-img img {
+    transition: all 0.3s ease;
+}
+
+#nav a:hover {
+    transform: translateY(-2px);
+}
+
+#hero {
+    text-align: center;
+    background: linear-gradient(135deg, #d6eaf8, #fef9e7);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#slider {
+    position: relative;
+    width: 240px;
+    height: 120px;
+    margin: 15px auto;
+}
+
+#slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#slider img:first-child {
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e67e22;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 26px;
+    border-radius: 24px;
+}
+
+.btn:hover {
+    background-color: #ca6f1e;
+    transform: scale(1.08);
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    flex: 1;
+    background-color: #1b4f72;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 6px;
+    border-radius: 8px;
+}
+
+.num {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f9e79f;
+}
+
+.cards {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #aed6f1;
+    border-radius: 8px;
+    padding: 4px 14px;
+    background-color: #fbfcfc;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(27, 79, 114, 0.25);
+}
+
+/* صفوف السيارات تظهر تدريجياً */
+@keyframes rowIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+tr.car {
+    animation: rowIn 0.5s ease both;
+}
+
+tr.car:nth-child(2) { animation-delay: 0.05s; }
+tr.car:nth-child(4) { animation-delay: 0.15s; }
+tr.car:nth-child(6) { animation-delay: 0.25s; }
+tr.car:nth-child(8) { animation-delay: 0.35s; }
+tr.car:nth-child(10) { animation-delay: 0.45s; }
+tr.car:nth-child(12) { animation-delay: 0.55s; }
+
+tr.car:hover td {
+    background-color: #eaf2f8;
+}
+
+tr.car:hover td.car-img img {
+    transform: scale(1.3);
+}
+
+tr.car.selected td {
+    background-color: #d5f5e3;
+}
+
+/* نافذة النتيجة */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#resultBox {
+    animation: popIn 0.35s ease;
+}
+
+.total-line {
+    color: #1e8449;
+    font-size: 20px;
+}

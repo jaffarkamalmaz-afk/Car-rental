@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir="rtl">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>السيارات</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="myFunctions.js"></script>
+</head>
+<body>
+<div id="header">
+<h1>مكتب النور لتأجير السيارات</h1>
+<div id="nav">
+<a href="home.html">الرئيسية</a>
+<a href="AboutUs.html">من نحن</a>
+<a href="Cars.html" class="active">السيارات</a>
+</div>
+</div>
+<div id="content">
+<h2>السيارات المتوفرة للتأجير</h2>
+<p class="hint">ضع إشارة في عمود "إظهار التفاصيل" لعرض معلومات السيارة، واختر السيارة أو السيارات التي تريد تأجيرها ثم اضغط "متابعة".</p>
+
+<table id="carsTable">
+<tr><th>الرمز</th><th>الصورة</th><th>الموديل</th><th>سنة الصنع</th><th>السعر اليومي</th><th>إظهار التفاصيل</th><th>اختيار</th></tr>
+<tr id="CR-001" class="car">
+<td>CR-001</td>
+<td class="car-img"><img src="images/car1.svg" alt="Toyota Corolla" width="90" height="45" /></td>
+<td class="model">Toyota Corolla</td>
+<td>2023</td>
+<td class="price" title="250000">250,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-001" id="details_CR-001" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-001" id="pick_CR-001" value="CR-001" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: أوتوماتيك - عدد المقاعد: 5 - عداد الكيلومترات: 15,000 كم - اللون: أبيض</td></tr>
+<tr id="CR-002" class="car">
+<td>CR-002</td>
+<td class="car-img"><img src="images/car2.svg" alt="Kia Sportage" width="90" height="45" /></td>
+<td class="model">Kia Sportage</td>
+<td>2022</td>
+<td class="price" title="400000">400,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-002" id="details_CR-002" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-002" id="pick_CR-002" value="CR-002" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: أوتوماتيك - عدد المقاعد: 5 - عداد الكيلومترات: 32,000 كم - اللون: رمادي</td></tr>
+<tr id="CR-003" class="car">
+<td>CR-003</td>
+<td class="car-img"><img src="images/car3.svg" alt="Hyundai Elantra" width="90" height="45" /></td>
+<td class="model">Hyundai Elantra</td>
+<td>2024</td>
+<td class="price" title="300000">300,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-003" id="details_CR-003" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-003" id="pick_CR-003" value="CR-003" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: أوتوماتيك - عدد المقاعد: 5 - عداد الكيلومترات: 5,000 كم - اللون: أسود</td></tr>
+<tr id="CR-004" class="car">
+<td>CR-004</td>
+<td class="car-img"><img src="images/car4.svg" alt="Chevrolet Spark" width="90" height="45" /></td>
+<td class="model">Chevrolet Spark</td>
+<td>2021</td>
+<td class="price" title="180000">180,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-004" id="details_CR-004" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-004" id="pick_CR-004" value="CR-004" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: عادي (يدوي) - عدد المقاعد: 4 - عداد الكيلومترات: 48,000 كم - اللون: أحمر</td></tr>
+<tr id="CR-005" class="car">
+<td>CR-005</td>
+<td class="car-img"><img src="images/car5.svg" alt="Nissan Sunny" width="90" height="45" /></td>
+<td class="model">Nissan Sunny</td>
+<td>2020</td>
+<td class="price" title="200000">200,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-005" id="details_CR-005" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-005" id="pick_CR-005" value="CR-005" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: عادي (يدوي) - عدد المقاعد: 5 - عداد الكيلومترات: 61,000 كم - اللون: فضي</td></tr>
+<tr id="CR-006" class="car">
+<td>CR-006</td>
+<td class="car-img"><img src="images/car6.svg" alt="Suzuki Swift" width="90" height="45" /></td>
+<td class="model">Suzuki Swift</td>
+<td>2022</td>
+<td class="price" title="210000">210,000 ل.س</td>
+<td><input type="checkbox" class="show-details" name="details_CR-006" id="details_CR-006" /></td>
+<td><input type="checkbox" class="pick" name="pick_CR-006" id="pick_CR-006" value="CR-006" /></td>
+</tr>
+<tr class="details-row"><td colspan="7">نوع الوقود: بنزين - ناقل الحركة: عادي (يدوي) - عدد المقاعد: 5 - عداد الكيلومترات: 27,000 كم - اللون: أزرق</td></tr>
+</table>
+
+<p class="center"><input type="button" id="nextBtn" value="متابعة" /></p>
+<p class="center" id="pickMsg"></p>
+
+<form id="bookingForm" action="Cars.html" method="post">
+<fieldset>
+<legend>نموذج طلب الحجز</legend>
+<p>السيارات المختارة: <span id="selectedList"></span></p>
+
+<div><label for="fullName">الاسم الكامل:</label>
+<input type="text" id="fullName" name="fullName" class="live" />
+<span class="error" id="err_fullName"></span></div>
+
+<div><label for="nationalId">الرقم الوطني (*):</label>
+<input type="tel" id="nationalId" name="nationalId" class="live" maxlength="11" />
+<span class="error" id="err_nationalId"></span></div>
+
+<div><label for="startDate">تاريخ بداية التأجير (*):</label>
+<input type="tel" id="startDate" name="startDate" class="live" maxlength="10" />
+<span class="hint">yyyy-mm-dd</span>
+<span class="error" id="err_startDate"></span></div>
+
+<div><label for="endDate">تاريخ نهاية التأجير (*):</label>
+<input type="tel" id="endDate" name="endDate" class="live" maxlength="10" />
+<span class="hint">yyyy-mm-dd</span>
+<span class="error" id="err_endDate"></span></div>
+
+<div><label for="mobile">رقم الموبايل:</label>
+<input type="tel" id="mobile" name="mobile" class="live" maxlength="10" />
+<span class="error" id="err_mobile"></span></div>
+
+<div><label for="email">البريد الإلكتروني:</label>
+<input type="email" id="email" name="email" class="live" />
+<span class="error" id="err_email"></span></div>
+
+<p class="hint">(*) حقول إلزامية</p>
+<p class="center"><input type="button" id="submitBtn" value="إرسال" /></p>
+</fieldset>
+</form>
+
+<div id="overlay"><div id="resultBox"></div></div>
+</div>
+<div id="footer">جميع الحقوق محفوظة - مكتب النور لتأجير السيارات</div>
+</body>
+</html>
