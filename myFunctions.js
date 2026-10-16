@@ -1,8 +1,8 @@
-/* ملف الدوال الوحيد للموقع: myFunctions.js */
+/* Single JavaScript file for the whole site: myFunctions.js */
 
-/* ---------- دوال مساعدة ---------- */
+/* ---------- Helper functions ---------- */
 
-// تنسيق الأرقام مع فاصل الآلاف
+// Format numbers with a thousands separator
 function formatMoney(n) {
     var s = String(Math.round(n));
     var out = "";
@@ -15,7 +15,7 @@ function formatMoney(n) {
     return out + " ل.س";
 }
 
-// تحويل نص بصيغة yyyy-mm-dd إلى تاريخ، وإرجاع null إذا كان غير صحيح
+// Convert a yyyy-mm-dd string to a date; return null if it is invalid
 function parseDate(str) {
     var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str);
     if (m === null) {
@@ -31,21 +31,21 @@ function parseDate(str) {
     return dt;
 }
 
-// عدد الأيام بين تاريخين
+// Number of days between two dates
 function daysBetween(start, end) {
     return Math.round((end.getTime() - start.getTime()) / 86400000);
 }
 
-// تحويل الأرقام العربية الهندية (٠-٩) إلى أرقام إنكليزية
+// Convert Arabic-Indic digits (٠-٩) to English digits
 function toEnglishDigits(str) {
     return str.replace(/[\u0660-\u0669]/g, function (ch) {
         return String(ch.charCodeAt(0) - 0x0660);
     });
 }
 
-/* ---------- دوال التحقق: تعيد نص الخطأ أو "" إذا كان الإدخال صحيحاً ---------- */
+/* ---------- Validation functions: return the error text, or "" if the input is valid ---------- */
 
-// الاسم: أحرف عربية ومسافات فقط (يقبل الفراغ)
+// Name: Arabic letters and spaces only (empty is accepted)
 function checkName(v) {
     if (v === "") {
         return "";
@@ -56,7 +56,7 @@ function checkName(v) {
     return "";
 }
 
-// الرقم الوطني: 11 خانة، أول خانتين من 01 إلى 14
+// National ID: 11 digits, first two digits between 01 and 14
 function checkNationalId(v) {
     if (v === "") {
         return "الرقم الوطني إلزامي";
@@ -71,7 +71,7 @@ function checkNationalId(v) {
     return "";
 }
 
-// الموبايل: 10 أرقام بالضبط، البادئة 093/098/099 (Syriatel) أو 094/095/096 (MTN)
+// Mobile: exactly 10 digits, prefix 093/098/099 (Syriatel) or 094/095/096 (MTN)
 function checkMobile(v) {
     if (v === "") {
         return "";
@@ -85,7 +85,7 @@ function checkMobile(v) {
     return "";
 }
 
-// البريد الإلكتروني (يقبل الفراغ)
+// Email (empty is accepted)
 function checkEmail(v) {
     if (v === "") {
         return "";
@@ -96,7 +96,7 @@ function checkEmail(v) {
     return "";
 }
 
-// تاريخ البداية والنهاية
+// Start and end dates
 function checkDates(s, e) {
     var errors = { start: "", end: "" };
     var ds = null;
@@ -123,9 +123,9 @@ function checkDates(s, e) {
     return errors;
 }
 
-/* ---------- الواجهة التفاعلية (jQuery) ---------- */
+/* ---------- Interactive UI (jQuery) ---------- */
 
-// قراءة السيارات المختارة من الجدول
+// Read the selected cars from the table
 function getSelectedCars() {
     var cars = [];
     $("input.pick:checked").each(function () {
@@ -139,7 +139,7 @@ function getSelectedCars() {
     return cars;
 }
 
-// زر متابعة
+// Continue button
 function goNext() {
     var cars = getSelectedCars();
     if (cars.length === 0) {
@@ -157,13 +157,13 @@ function setError(id, msg) {
     return msg === "";
 }
 
-// إبقاء الأرقام فقط في الحقل (ويحوّل الأرقام العربية إلى إنكليزية)
+// Keep only digits in the field (and convert Arabic digits to English)
 function keepDigits(id) {
     var el = $("#" + id);
     el.val(toEnglishDigits(el.val()).replace(/[^0-9]/g, ""));
 }
 
-// حقل تاريخ: أرقام فقط مع إضافة الشرطة تلقائياً بصيغة yyyy-mm-dd
+// Date field: digits only, with hyphens added automatically as yyyy-mm-dd
 function formatDateField(id) {
     var d = toEnglishDigits($("#" + id).val()).replace(/[^0-9]/g, "").substring(0, 8);
     var out = d;
@@ -175,7 +175,7 @@ function formatDateField(id) {
     $("#" + id).val(out);
 }
 
-// التحقق الفوري من حقل واحد أثناء الكتابة أو عند مغادرته
+// Live validation of a single field while typing or on blur
 function validateField(id) {
     var v = toEnglishDigits($.trim($("#" + id).val()));
     if (id === "fullName") {
@@ -190,7 +190,7 @@ function validateField(id) {
     if (id === "email") {
         return setError(id, checkEmail(v));
     }
-    // التاريخان يتحققان معاً لأن النهاية تعتمد على البداية
+    // Both dates are validated together because the end date depends on the start date
     var d = checkDates(toEnglishDigits($.trim($("#startDate").val())),
                        toEnglishDigits($.trim($("#endDate").val())));
     var startTouched = $.trim($("#startDate").val()) !== "";
@@ -200,7 +200,7 @@ function validateField(id) {
     return d.start === "" && d.end === "";
 }
 
-// زر إرسال
+// Submit button
 function submitBooking() {
     var name = $.trim($("#fullName").val());
     var nid = toEnglishDigits($.trim($("#nationalId").val()));
@@ -261,7 +261,7 @@ function submitBooking() {
     $("#resultBox").html(html);
     $("#overlay").fadeIn();
 
-    // عدّاد متحرك للمبلغ النهائي
+    // Animated counter for the final amount
     $({ v: 0 }).animate({ v: finalTotal }, {
         duration: 900,
         step: function (now) {
@@ -273,7 +273,7 @@ function submitBooking() {
     });
 }
 
-// شريط الصور المتحرك في الصفحة الرئيسية
+// Image slider on the home page
 function startSlider() {
     var imgs = $("#slider img");
     if (imgs.length < 2) {
@@ -287,7 +287,7 @@ function startSlider() {
     }, 2200);
 }
 
-// عدّادات الأرقام في الصفحة الرئيسية
+// Number counters on the home page
 function startCounters() {
     $(".num").each(function () {
         var el = $(this);
@@ -305,21 +305,21 @@ function startCounters() {
     });
 }
 
-/* ---------- ربط الأحداث ---------- */
+/* ---------- Event binding ---------- */
 $(document).ready(function () {
 
-    // ظهور سلس لمحتوى كل الصفحات
+    // Smooth fade-in of the content on every page
     $("#content").hide().fadeIn(500);
 
     startSlider();
     startCounters();
 
-    // تمييز صف السيارة المختارة
+    // Highlight the selected car row
     $("input.pick").change(function () {
         $(this).closest("tr").toggleClass("selected", this.checked);
     });
 
-    // إظهار/إخفاء تفاصيل السيارة (عدة سيارات معاً)
+    // Show/hide car details (several cars at once)
     $("input.show-details").click(function () {
         var detailsRow = $(this).closest("tr").next("tr.details-row");
         if (this.checked) {
@@ -329,11 +329,11 @@ $(document).ready(function () {
         }
     });
 
-    // لوحة أرقام فقط: الرقم الوطني والموبايل أرقام، والتاريخ يُنسَّق تلقائياً
+    // Digits only: national ID and mobile are numeric, and dates are formatted automatically
     $("#nationalId, #mobile").on("input", function () { keepDigits(this.id); });
     $("#startDate, #endDate").on("input", function () { formatDateField(this.id); });
 
-    // تحقق فوري على الحقول
+    // Live validation on the fields
     $("#bookingForm input.live").on("input blur", function () {
         validateField(this.id);
     });
@@ -341,7 +341,7 @@ $(document).ready(function () {
     $("#nextBtn").click(goNext);
     $("#submitBtn").click(submitBooking);
 
-    // إغلاق نافذة النتيجة
+    // Close the result window
     $("#overlay").on("click", "#closeResult", function () {
         $("#overlay").fadeOut();
     });

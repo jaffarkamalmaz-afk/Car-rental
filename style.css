@@ -1,6 +1,6 @@
-/* ملف التنسيق الموحد لجميع الصفحات */
+/* Single stylesheet shared by all pages */
 
-/* الخطوط: تنسيق جميع الكلمات من مكان واحد */
+/* Fonts: all text is styled from one place */
 body {
     font-family: Tahoma, Arial, sans-serif;
     font-size: 16px;
@@ -14,7 +14,7 @@ h1, h2, h3 {
     color: #1b4f72;
 }
 
-/* القائمة العلوية */
+/* Top navigation */
 #header {
     background: linear-gradient(90deg, #154360, #2e86c1);
     color: #ffffff;
@@ -55,7 +55,7 @@ h1, h2, h3 {
     font-size: 14px;
 }
 
-/* الجداول */
+/* Tables */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -85,7 +85,7 @@ tr.details-row td {
     text-align: right;
 }
 
-/* عناصر الإدخال النصية: تنسيقها من مكان واحد (اللون) */
+/* Text inputs: styled from one place (color) */
 input[type="text"], input[type="tel"], input[type="email"] {
     background-color: #eaf2f8;
     color: #1b2631;
@@ -155,7 +155,7 @@ input[type="button"]:hover {
     text-align: center;
 }
 
-/* نافذة النتيجة */
+/* Result window */
 #overlay {
     display: none;
     position: fixed;
@@ -185,7 +185,7 @@ input[type="button"]:hover {
     font-weight: bold;
 }
 
-/* ---------- حركة وتأثيرات ---------- */
+/* ---------- Motion and effects ---------- */
 #nav a, input[type="button"], .btn, .card, td.car-img img {
     transition: all 0.3s ease;
 }
@@ -276,7 +276,7 @@ input[type="button"]:hover {
     box-shadow: 0 8px 16px rgba(27, 79, 114, 0.25);
 }
 
-/* صفوف السيارات تظهر تدريجياً */
+/* Car rows appear gradually */
 @keyframes rowIn {
     from { opacity: 0; transform: translateX(40px); }
     to { opacity: 1; transform: translateX(0); }
@@ -305,7 +305,7 @@ tr.car.selected td {
     background-color: #d5f5e3;
 }
 
-/* نافذة النتيجة */
+/* Result window */
 @keyframes popIn {
     from { opacity: 0; transform: scale(0.7); }
     to { opacity: 1; transform: scale(1); }
